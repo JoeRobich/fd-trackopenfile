@@ -1,11 +1,8 @@
 using System;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Text;
-using PropertiesPanel.Localization;
+using TrackOpenFile.Localization;
 
-namespace PropertiesPanel
+namespace TrackOpenFile
 {
     public delegate void SettingsChangesEvent();
 
@@ -22,7 +19,7 @@ namespace PropertiesPanel
         [LocalizedCategory("TrackOpenFile.Category.General")]
         [LocalizedDisplayName("TrackOpenFile.Label.TrackOpenFile")]
         [LocalizedDescription("TrackOpenFile.Description.TrackOpenFile")]
-        [DefaultValue(DEFAULT_TRACK_OPEN_FILE)]
+        [DefaultValue(false)]
         public bool TrackOpenFile
         {
             get { return _trackOpenFile; }

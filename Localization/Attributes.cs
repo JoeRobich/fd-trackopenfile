@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using TrackOpenFile.Helpers;
 
-namespace PropertiesPanel.Localization
+namespace TrackOpenFile.Localization
 {
     [AttributeUsage(AttributeTargets.All)]
     public class LocalizedCategoryAttribute : CategoryAttribute
@@ -73,7 +73,7 @@ namespace PropertiesPanel.Localization
                 {
                     string key = base.DisplayName;
                     DisplayNameValue = ResourceHelper.GetString(key);
-                    if (DisplayNameValue == null) 
+                    if (DisplayNameValue == null)
                         DisplayNameValue = key;
                     initialized = true;
                 }

@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 
-namespace PropertiesPanel
+namespace TrackOpenFile
 {
     public class PluginMain : IPlugin
     {
@@ -27,15 +27,15 @@ namespace PropertiesPanel
         /// <summary>
         /// Api level of the plugin
         /// </summary>
-        public Int32 Api
+        public int Api
         {
             get { return 1; }
         }
 
         /// <summary>
         /// Name of the plugin
-        /// </summary> 
-        public String Name
+        /// </summary>
+        public string Name
         {
             get { return NAME; }
         }
@@ -43,31 +43,31 @@ namespace PropertiesPanel
         /// <summary>
         /// GUID of the plugin
         /// </summary>
-        public String Guid
+        public string Guid
         {
             get { return GUID; }
         }
 
         /// <summary>
         /// Author of the plugin
-        /// </summary> 
-        public String Author
+        /// </summary>
+        public string Author
         {
             get { return AUTHOR; }
         }
 
         /// <summary>
         /// Description of the plugin
-        /// </summary> 
-        public String Description
+        /// </summary>
+        public string Description
         {
             get { return DESCRIPTION; }
         }
 
         /// <summary>
         /// Web address for help
-        /// </summary> 
-        public String Help
+        /// </summary>
+        public string Help
         {
             get { return HELP; }
         }
@@ -76,9 +76,9 @@ namespace PropertiesPanel
         /// Object that contains the settings
         /// </summary>
         [Browsable(false)]
-        public Object Settings
+        public object Settings
         {
-            get { return this._settings; }
+            get { return _settings; }
         }
 
         #endregion
@@ -90,9 +90,9 @@ namespace PropertiesPanel
         /// </summary>
         public void Initialize()
         {
-            this.InitBasics();
-            this.LoadSettings();
-            this.AddEventHandlers();
+            InitBasics();
+            LoadSettings();
+            AddEventHandlers();
         }
 
         /// <summary>
@@ -100,13 +100,13 @@ namespace PropertiesPanel
         /// </summary>
         public void Dispose()
         {
-            this.SaveSettings();
+            SaveSettings();
         }
 
         /// <summary>
         /// Handles the incoming events
         /// </summary>
-        public void HandleEvent(Object sender, NotifyEvent e, HandlingPriority prority)
+        public void HandleEvent(object sender, NotifyEvent e, HandlingPriority prority)
         {
             if (e.Type == EventType.FileSwitch)
             {
@@ -167,14 +167,14 @@ namespace PropertiesPanel
             _timer = new Timer();
             _timer.Interval = 100;
             _timer.Tick += _timer_Tick;
-            String dataPath = Path.Combine(PathHelper.DataDir, NAME);
+            string dataPath = Path.Combine(PathHelper.DataDir, NAME);
             if (!Directory.Exists(dataPath)) Directory.CreateDirectory(dataPath);
-            this._settingFilename = Path.Combine(dataPath, "Settings.fdb");
+            _settingFilename = Path.Combine(dataPath, "Settings.fdb");
         }
 
         /// <summary>
         /// Adds the required event handlers
-        /// </summary> 
+        /// </summary>
         public void AddEventHandlers()
         {
             // Set events you want to listen (combine as flags)
@@ -193,12 +193,12 @@ namespace PropertiesPanel
         /// </summary>
         public void LoadSettings()
         {
-            this._settings = new Settings();
-            if (!File.Exists(this._settingFilename)) this.SaveSettings();
+            _settings = new Settings();
+            if (!File.Exists(_settingFilename)) SaveSettings();
             else
             {
-                Object obj = ObjectSerializer.Deserialize(this._settingFilename, this._settings);
-                this._settings = (Settings)obj;
+                object obj = ObjectSerializer.Deserialize(_settingFilename, _settings);
+                _settings = (Settings)obj;
             }
         }
 
@@ -207,7 +207,7 @@ namespace PropertiesPanel
         /// </summary>
         public void SaveSettings()
         {
-            ObjectSerializer.Serialize(this._settingFilename, this._settings);
+            ObjectSerializer.Serialize(_settingFilename, _settings);
         }
 
         #endregion

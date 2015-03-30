@@ -3,7 +3,7 @@
 Adds a Project Setting under the TrackOpenFile extension that when enabled will keep the Project Manager tree synced with the open file. Very handy when managing a large code base.  
 
 ## Download
-[Version 0.2](http://goo.gl/yoc5Q)  
+[Releases](https://github.com/JoeRobich/fd-trackopenfile/releases/) 
 
 ## History 
 **v0.2** - Fixed bug with non-en_US locales. Update to work with FD5.  

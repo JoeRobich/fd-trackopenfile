@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Text;
-using PropertiesPanel.Helpers;
+using TrackOpenFile.Helpers;
 
 namespace PropertiesPanel.Localization
 {
@@ -16,7 +14,7 @@ namespace PropertiesPanel.Localization
             : base(key)
         {
         }
-        
+
         protected override string GetLocalizedString(string key)
         {
             if (!initialized)

@@ -1,15 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
-using PluginCore.Localization;
-using PluginCore.Utilities;
-using PluginCore.Managers;
+﻿using PluginCore;
 using PluginCore.Helpers;
-using PluginCore;
-using PropertiesPanel.Helpers;
-using WeifenLuo.WinFormsUI.Docking;
+using PluginCore.Managers;
+using PluginCore.Utilities;
+using System;
+using System.ComponentModel;
+using System.IO;
+using System.Windows.Forms;
 
 namespace PropertiesPanel
 {
